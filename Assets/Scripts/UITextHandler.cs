@@ -7,9 +7,10 @@ public class UpdateText : MonoBehaviour
     [SerializeField] public TextMeshProUGUI CDCounter, LeatherCounter, CanCounter, FlowerCounter, WoolCounter, FabricsCounter, RopeCounter, ButtonsCounter, PlasticsCounter, RamenCounter, SoupCounter, CandyCounter, CookiesCounter;
     [SerializeField] private int iCD = 0, iLeather = 0, iCan = 0, iFlower = 0, iWool = 0, iFabrics = 0, iRope = 0, iButtons = 0, iPlastics = 0;
     [SerializeField] private int iRamen = 0, iSoup = 0, iCandy = 0, iCookies = 0;
-    [SerializeField] public TextMeshProUGUI DayCounter, ReputationCounter, EncumberanceCounter, TimeCounter;
+    [SerializeField] public TextMeshProUGUI DayCounter, ReputationCounter, EncumberanceCounter, TimeCounter, FoodCounter;
     [SerializeField] private int iDay = 1, iTime = 0, iReputation = 0, iEncumberance = 0, iMaxEncumbernace = 100;
     [SerializeField] private string sReputation;
+    private float fFoodTotal = 0;
 
     void Start()
     {
@@ -36,6 +37,34 @@ public class UpdateText : MonoBehaviour
         UpdateEncumberanceColor();
         EncumberanceCounter.text = "Encumberance: " + iEncumberance + "/" + iMaxEncumbernace;
         TimeCounter.text = ConvertTo24HourFormat(iTime);
+        FoodCounter.text = CalculateFood() + " Days worth of food";
+        FoodTextColor();
+    }
+
+    int CalculateFood()
+    {
+        fFoodTotal = iRamen + (iSoup * 2) + (iCandy / 4) + (iCookies / 2);
+        return Mathf.RoundToInt(fFoodTotal);
+    }
+
+    void FoodTextColor()
+    {
+        if (CalculateFood() >= 0 && CalculateFood() < 2)
+        {
+            FoodCounter.color = Color.red;
+        }
+        else if (CalculateFood() >= 2 && CalculateFood() < 4)
+        {
+            FoodCounter.color = new Color(1.0f, 0.5f, 0.0f);
+        }
+        else if (CalculateFood() >= 4 && CalculateFood() < 6)
+        {
+            FoodCounter.color = Color.yellow;
+        }
+        else if (CalculateFood() >= 6)
+        {
+            FoodCounter.color = Color.green;
+        }
     }
 
     void UpdateReputationText()
