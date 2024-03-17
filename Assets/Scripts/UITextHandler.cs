@@ -5,10 +5,7 @@ using TMPro;
 public class UpdateText : MonoBehaviour
 {
     [SerializeField] public TextMeshProUGUI CDCounter, LeatherCounter, CanCounter, FlowerCounter, WoolCounter, FabricsCounter, RopeCounter, ButtonsCounter, PlasticsCounter, RamenCounter, SoupCounter, CandyCounter, CookiesCounter;
-    [SerializeField] private int iCD = 0, iLeather = 0, iCan = 0, iFlower = 0, iWool = 0, iFabrics = 0, iRope = 0, iButtons = 0, iPlastics = 0;
-    [SerializeField] private int iRamen = 0, iSoup = 0, iCandy = 0, iCookies = 0;
     [SerializeField] public TextMeshProUGUI DayCounter, ReputationCounter, EncumberanceCounter, TimeCounter, FoodCounter;
-    [SerializeField] private int iDay = 1, iTime = 0, iReputation = 0, iEncumberance = 0, iMaxEncumbernace = 100;
     [SerializeField] private string sReputation;
     private float fFoodTotal = 0;
 
@@ -18,33 +15,40 @@ public class UpdateText : MonoBehaviour
 
     void Update()
     {
-        CDCounter.text = "x" + iCD;
-        LeatherCounter.text = "x" + iLeather;
-        CanCounter.text = "x" + iCan;
-        FlowerCounter.text = "x" + iFlower;
-        WoolCounter.text = "x" + iWool;
-        FabricsCounter.text = "x" + iFabrics;
-        RopeCounter.text = "x" + iRope;
-        ButtonsCounter.text = "x" + iButtons;
-        PlasticsCounter.text = "x" + iPlastics;
-        RamenCounter.text = "x" + iRamen;
-        SoupCounter.text = "x" + iSoup;
-        CandyCounter.text = "x" + iCandy;
-        CookiesCounter.text = "x" + iCookies;
-        DayCounter.text = "Day " + iDay;
+        CDCounter.text = "x" + GlobalVariables.iCD;
+        LeatherCounter.text = "x" + GlobalVariables.iLeather;
+        CanCounter.text = "x" + GlobalVariables.iCan;
+        FlowerCounter.text = "x" + GlobalVariables.iFlower;
+        WoolCounter.text = "x" + GlobalVariables.iWool;
+        FabricsCounter.text = "x" + GlobalVariables.iFabrics;
+        RopeCounter.text = "x" + GlobalVariables.iRope;
+        ButtonsCounter.text = "x" + GlobalVariables.iButtons;
+        PlasticsCounter.text = "x" + GlobalVariables.iPlastics;
+        RamenCounter.text = "x" + GlobalVariables.iRamen;
+        SoupCounter.text = "x" + GlobalVariables.iSoup;
+        CandyCounter.text = "x" + GlobalVariables.iCandy;
+        CookiesCounter.text = "x" + GlobalVariables.iCookies;
+        DayCounter.text = "Day " + GlobalVariables.iDay;
         UpdateReputationText();
-        ReputationCounter.text = "Reputation: " + sReputation + " (" + iReputation + ")";
+        ReputationCounter.text = "Reputation: " + sReputation + " (" + GlobalVariables.iReputation + ")";
+        CalculateEncumberance();
         UpdateEncumberanceColor();
-        EncumberanceCounter.text = "Encumberance: " + iEncumberance + "/" + iMaxEncumbernace;
-        TimeCounter.text = ConvertTo24HourFormat(iTime);
+        EncumberanceCounter.text = "Encumberance: " + GlobalVariables.iEncumberance + "/" + GlobalVariables.iMaxEncumbernace;
+        TimeCounter.text = ConvertTo24HourFormat(GlobalVariables.iTime);
         FoodCounter.text = CalculateFood() + " Days worth of food";
         FoodTextColor();
     }
 
     int CalculateFood()
     {
-        fFoodTotal = iRamen + (iSoup * 2) + (iCandy / 4) + (iCookies / 2);
+        fFoodTotal = GlobalVariables.iRamen + (GlobalVariables.iSoup * 2) + (GlobalVariables.iCandy / 4) + (GlobalVariables.iCookies / 2);
         return Mathf.RoundToInt(fFoodTotal);
+    }
+
+    int CalculateEncumberance()
+    {
+        GlobalVariables.iEncumberance = (GlobalVariables.iRamen * 4) + (GlobalVariables.iSoup * 10) + GlobalVariables.iCandy + (GlobalVariables.iCookies * 2);
+        return GlobalVariables.iEncumberance;
     }
 
     void FoodTextColor()
@@ -69,22 +73,22 @@ public class UpdateText : MonoBehaviour
 
     void UpdateReputationText()
     {
-        if (iReputation >= 0 && iReputation < 20)
+        if (GlobalVariables.iReputation >= 0 && GlobalVariables.iReputation < 20)
         {
             sReputation = "A Nobody";
             ReputationCounter.color = Color.red;
         }
-        else if (iReputation >= 20 && iReputation < 40)
+        else if (GlobalVariables.iReputation >= 20 && GlobalVariables.iReputation < 40)
         {
             sReputation = "Small Timer";
             ReputationCounter.color = new Color(1.0f, 0.5f, 0.0f);
         }
-        else if (iReputation >= 40 && iReputation < 75)
+        else if (GlobalVariables.iReputation >= 40 && GlobalVariables.iReputation < 75)
         {
             sReputation = "Well Known";
             ReputationCounter.color = Color.yellow;
         }
-        else if (iReputation >= 75)
+        else if (GlobalVariables.iReputation >= 75)
         {
             sReputation = "Famous";
             ReputationCounter.color = Color.green;
@@ -93,19 +97,19 @@ public class UpdateText : MonoBehaviour
 
     void UpdateEncumberanceColor()
     {
-        if (iEncumberance >= 0 && iEncumberance < 25)
+        if (GlobalVariables.iEncumberance >= 0 && GlobalVariables.iEncumberance < 25)
         {
             EncumberanceCounter.color = Color.green;
         }
-        else if (iEncumberance >= 25 && iEncumberance < 50)
+        else if (GlobalVariables.iEncumberance >= 25 && GlobalVariables.iEncumberance < 50)
         {
             EncumberanceCounter.color = Color.yellow;
         }
-        else if (iEncumberance >= 50 && iEncumberance < 75)
+        else if (GlobalVariables.iEncumberance >= 50 && GlobalVariables.iEncumberance < 75)
         {
             EncumberanceCounter.color = new Color(1.0f, 0.5f, 0.0f);
         }
-        else if (iEncumberance >= 75)
+        else if (GlobalVariables.iEncumberance >= 75)
         {
             EncumberanceCounter.color = Color.red;
         }

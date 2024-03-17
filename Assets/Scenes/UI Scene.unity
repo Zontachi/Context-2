@@ -3227,29 +3227,11 @@ MonoBehaviour:
   SoupCounter: {fileID: 506928865}
   CandyCounter: {fileID: 1798078386}
   CookiesCounter: {fileID: 1317518851}
-  iCD: 0
-  iLeather: 0
-  iCan: 0
-  iFlower: 0
-  iWool: 0
-  iFabrics: 0
-  iRope: 0
-  iButtons: 0
-  iPlastics: 0
-  iRamen: 0
-  iSoup: 0
-  iCandy: 0
-  iCookies: 0
   DayCounter: {fileID: 975589240}
   ReputationCounter: {fileID: 980112219}
   EncumberanceCounter: {fileID: 712056343}
   TimeCounter: {fileID: 265355619}
   FoodCounter: {fileID: 1199103072}
-  iDay: 1
-  iTime: 0
-  iReputation: 0
-  iEncumberance: 0
-  iMaxEncumbernace: 100
   sReputation: 
 --- !u!4 &1155634443
 Transform:
