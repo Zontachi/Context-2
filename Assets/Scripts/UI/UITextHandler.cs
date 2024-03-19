@@ -1,17 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 public class UpdateText : MonoBehaviour
 {
-    [SerializeField] public TextMeshProUGUI CDCounter, LeatherCounter, CanCounter, FlowerCounter, WoolCounter, FabricsCounter, RopeCounter, ButtonsCounter, PlasticsCounter, RamenCounter, SoupCounter, CandyCounter, CookiesCounter;
-    [SerializeField] public TextMeshProUGUI DayCounter, ReputationCounter, EncumberanceCounter, TimeCounter, FoodCounter;
+    public TextMeshProUGUI CDCounter, LeatherCounter, CanCounter, FlowerCounter, WoolCounter, FabricsCounter, RopeCounter, ButtonsCounter, PlasticsCounter, RamenCounter, SoupCounter, CandyCounter, CookiesCounter;
+    public TextMeshProUGUI DayCounter, ReputationCounter, EncumberanceCounter, TimeCounter, FoodCounter;
     [SerializeField] private string sReputation;
     private float fFoodTotal = 0;
-
-    void Start()
-    {
-    }
 
     void Update()
     {
@@ -35,6 +32,7 @@ public class UpdateText : MonoBehaviour
         UpdateEncumberanceColor();
         EncumberanceCounter.text = "Encumberance: " + GlobalVariables.iEncumberance + "/" + GlobalVariables.iMaxEncumbernace;
         TimeCounter.text = ConvertTo24HourFormat(GlobalVariables.iTime);
+        //TimeCounter.text = ConvertTo24HourFormat((int) Time.time);
         FoodCounter.text = CalculateFood() + " Days worth of food";
         FoodTextColor();
     }
@@ -117,8 +115,8 @@ public class UpdateText : MonoBehaviour
 
     string ConvertTo24HourFormat(int time)
     {
-        int hours = time / 100; // Extract hours
-        int minutes = time % 100; // Extract minutes
+        int hours = time / 60; // Extract hours
+        int minutes = time % 60; // Extract minutes
 
         // Ensure that hours and minutes are within the valid range
         hours = Mathf.Clamp(hours, 0, 23);
