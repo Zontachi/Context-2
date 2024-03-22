@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class CustomCursor : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    private void Awake()
     {
-        
+        transform.position = Input.mousePosition;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        transform.position = Input.mousePosition;
     }
 }

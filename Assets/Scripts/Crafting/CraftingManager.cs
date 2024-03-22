@@ -78,6 +78,7 @@ public class CraftingManager : MonoBehaviour
                 resultSlot.gameObject.SetActive(true);
                 resultSlot.GetComponent<Image>().sprite = recipeResults[i].GetComponent<Image>().sprite;
                 resultSlot.item = recipeResults[i];
+                InventoryManager.Instance.inventoryItems.Add(recipeResults[i]);
             }
         }
     }
@@ -102,5 +103,6 @@ public class CraftingManager : MonoBehaviour
             isDragging = true;
         }
     }
-}
 
+ 
+}
