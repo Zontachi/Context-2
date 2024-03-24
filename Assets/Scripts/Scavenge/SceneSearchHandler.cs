@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Crafting;
 using UnityEngine;
 
 public class SceneSearchHandler : MonoBehaviour
