@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace Crafting
 {
-    public class Inventory : MonoBehaviour
+    public class InventoryManager : MonoBehaviour
     {
-        public static Inventory Instance;
+        public static InventoryManager Instance;
         
         private void Awake()
         {
@@ -21,23 +21,23 @@ namespace Crafting
             }
         }
 
-        private readonly Dictionary<Items, int> _inventoryItems = new Dictionary<Items, int>();
+        private readonly Dictionary<ItemData, int> _inventoryItems = new Dictionary<ItemData, int>();
 
         private void Start()
         {
-            foreach (Items item in Enum.GetValues(typeof(Items)))
+            foreach (ItemData item in Enum.GetValues(typeof(ItemData)))
             {
                 _inventoryItems.Add(item, 0);
             }
         }
 
-        public void AddItem(Items item, int amount)
+        public void AddItem(ItemData item, int amount)
         {
             if(!_inventoryItems.TryAdd(item, amount))
                 _inventoryItems[item] += amount;
         }
         
-        public void RemoveItem(Items item, int amount)
+        public void RemoveItem(ItemData item, int amount)
         {
             if (!_inventoryItems.ContainsKey(item)) return;
             _inventoryItems[item] -= amount;
@@ -45,12 +45,12 @@ namespace Crafting
                 _inventoryItems[item] = 0;
         }
         
-        public int GetAmount(Items item)
+        public int GetAmount(ItemData item)
         {
             return _inventoryItems.GetValueOrDefault(item, 0);
         }
         
-        public bool HasItem(Items item, int amount)
+        public bool HasItem(ItemData item, int amount)
         {
             return _inventoryItems.GetValueOrDefault(item, 0) >= amount;
         }

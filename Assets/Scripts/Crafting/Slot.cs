@@ -1,3 +1,5 @@
+using Assets.Scripts.Crafting;
+using Assets.Scripts.Itemsystem;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -8,12 +10,27 @@ public class Slot : MonoBehaviour
     public int index; 
     
     // The item that the slot contains
-    [HideInInspector] 
-    public Item containedItem;
+    public ItemData containedItem;
     
     // Reference to the Image component
     [SerializeField]
     private Image itemImage;
+
+    private void Update()
+    {
+        if (!Input.GetMouseButtonDown(0)) return;
+        if (UIHelper.IsPointerOverGameObject(gameObject))
+            DisableImage();
+
+        if (ItemManager.Instance.CurrentItem == null) return;
+        
+        if (UIHelper.IsPointerOverGameObject(gameObject))
+        {
+            EnableImage(ItemManager.Instance.CurrentItem);
+            ItemManager.Instance.CurrentItem = null;
+            CraftingManager.Instance.CheckForCreateRecipes();
+        }
+    }
 
     /// <summary>
     /// Disable the image of the slot
@@ -32,7 +49,7 @@ public class Slot : MonoBehaviour
     /// Enables the image of the slot
     /// </summary>
     /// <param name="item">The items that the slot should display</param>
-    public void EnableImage(Item item)
+    public void EnableImage(ItemData item)
     {
         // Set the item and the sprite
         containedItem = item;
