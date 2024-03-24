@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using Itemsystem;
 using UnityEngine;
 
 namespace Crafting
@@ -22,20 +24,30 @@ namespace Crafting
         }
 
         private readonly Dictionary<ItemData, int> _inventoryItems = new Dictionary<ItemData, int>();
+        [SerializeField] private int startingAmounts = 0;
+        [SerializeField] private List<ItemData> itemsDataScriptableObjects;
 
         private void Start()
         {
-            foreach (ItemData item in Enum.GetValues(typeof(ItemData)))
+            foreach (var item in itemsDataScriptableObjects)
             {
-                _inventoryItems.Add(item, 0);
+                AddItem(item, startingAmounts);
             }
         }
-
+        
+        public Dictionary<ItemData, int> GetDictionary => _inventoryItems;
+        
         public void AddItem(ItemData item, int amount)
         {
-            if(!_inventoryItems.TryAdd(item, amount))
+            if (!_inventoryItems.ContainsKey(item))
+            {
+                _inventoryItems.Add(item, amount);
+                FindObjectOfType<ItemUIContainer>()?.AddNewUIItem(item);
+            }
+            else
                 _inventoryItems[item] += amount;
         }
+        
         
         public void RemoveItem(ItemData item, int amount)
         {

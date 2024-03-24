@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b1c3b908dda77149b6fba736cdd52c7, type: 3}
-  m_Name: New Recipe Data
+  m_Name: New Recipe Data 1
   m_EditorClassIdentifier: 
   data:
-  - {fileID: 11400000, guid: dfa8873ee8207a74a8ee8dfbee7bc03b, type: 2}
-  - {fileID: 11400000, guid: c9821d6a86e972d41bbd53af3f783f9c, type: 2}
-  - {fileID: 11400000, guid: c9821d6a86e972d41bbd53af3f783f9c, type: 2}
-  resultItem: {fileID: 11400000, guid: 49cd27d31dcb31b4ea2727033f0a81bd, type: 2}
+  - {fileID: 11400000, guid: fff90bc02bab53c4eb5e4ff02c587863, type: 2}
+  - {fileID: 11400000, guid: fff90bc02bab53c4eb5e4ff02c587863, type: 2}
+  - {fileID: 11400000, guid: fff90bc02bab53c4eb5e4ff02c587863, type: 2}
+  resultItem: {fileID: 11400000, guid: fff90bc02bab53c4eb5e4ff02c587863, type: 2}

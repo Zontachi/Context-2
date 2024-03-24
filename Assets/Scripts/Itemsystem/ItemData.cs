@@ -1,10 +1,12 @@
-using UnityEditor;
 using UnityEngine;
 
-[CreateAssetMenu (menuName = "Item/ItemData")]
-
-public class ItemData : ScriptableObject
+namespace Itemsystem
 {
-    public ItemType type;
-    public Sprite itemSprite; 
+    [CreateAssetMenu (menuName = "Item/ItemData")]
+
+    public class ItemData : ScriptableObject
+    {
+        public ItemType type;
+        public Sprite itemSprite; 
+    }
 }

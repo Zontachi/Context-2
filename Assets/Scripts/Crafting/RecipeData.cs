@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Itemsystem;
 using UnityEngine;
 
-namespace Assets.Scripts.Crafting
+namespace Crafting
 {
     [CreateAssetMenu(menuName = ("Recipe/Recipe Data"))]
     public class RecipeData : ScriptableObject

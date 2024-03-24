@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Assets.Scripts.Crafting;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Assets.Scripts.Itemsystem
+namespace Itemsystem
 {
     public class ItemManager: MonoBehaviour
     {
