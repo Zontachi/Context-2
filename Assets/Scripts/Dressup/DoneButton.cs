@@ -12,6 +12,4 @@ public class ChangeScene : MonoBehaviour
         // Scene wordt geladen op basis van de opgegeven naam
         SceneManager.LoadScene(sceneName);
     }
-
-    
 }
