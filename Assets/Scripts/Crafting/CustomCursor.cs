@@ -29,6 +29,7 @@ namespace Crafting
         /// <param name="sprite">The sprite to be displayed</param>
         public void ShowCursor(Sprite sprite)
         {
+            if(_cursorImage == null) return;
             // Enable the cursor image and set the sprite
             _cursorImage.enabled = true;
             _cursorImage.sprite = sprite;
@@ -39,6 +40,7 @@ namespace Crafting
         /// </summary>
         public void HideCursor()
         {
+            if(_cursorImage == null) return;
             // Disable the cursor image and reset the sprite
             _cursorImage.enabled = false;
             _cursorImage.sprite = null;
