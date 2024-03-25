@@ -17,7 +17,7 @@ public class ButtonHandler : MonoBehaviour
     public void HouseClicked()
     {
         Debug.Log("Loading new area");
-        //SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene("UI Scene 1");
     }
     public void BathClicked()
     {
@@ -38,5 +38,15 @@ public class ButtonHandler : MonoBehaviour
     {
         Debug.Log("Loading new area");
         //SceneManager.LoadScene(sceneName);
+    }
+    public void CraftingClicked()
+    {
+        Debug.Log("Loading new area");
+        SceneManager.LoadScene("Crafting system");
+    }
+    public void DressupClicked()
+    {
+        Debug.Log("Loading new area");
+        SceneManager.LoadScene("Dressup");
     }
 }

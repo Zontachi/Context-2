@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UI Scene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/UI Scene 1.unity
+    guid: d6f870c4444fe6449ac506fa68bb2778
+  - enabled: 1
+    path: Assets/Scenes/Crafting system.unity
+    guid: e8f8c70f7649e114988c79edacf02c2a
+  - enabled: 1
+    path: Assets/Scenes/Dressup.unity
+    guid: ad06686584201e2469ae8d1c3299e1b8
   m_configObjects: {}
