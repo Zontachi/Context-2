@@ -686,7 +686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd8eab8ee394d84e901632c0cbce946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: UI Scene 1
+  sceneName: Intro Dialogue
 --- !u!114 &1231565174
 MonoBehaviour:
   m_ObjectHideFlags: 0

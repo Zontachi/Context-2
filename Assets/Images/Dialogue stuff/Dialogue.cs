@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Dialogue : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
     public string[] lines;
     public float textSpeed;
+    public string nextSceneName; // Naam van de volgende scene
 
     private int index;
 
@@ -50,7 +52,7 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    void NextLine()
+   void NextLine()
     {
         if (index < lines.Length - 1)
         {
@@ -60,7 +62,8 @@ public class Dialogue : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false);
+            // Laad de volgende scene
+            SceneManager.LoadScene(nextSceneName);
         }
     }
 }
