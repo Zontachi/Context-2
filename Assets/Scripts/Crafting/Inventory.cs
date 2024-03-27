@@ -25,23 +25,22 @@ namespace Crafting
 
         private readonly Dictionary<ItemData, int> _inventoryItems = new Dictionary<ItemData, int>();
         [SerializeField] private int startingAmounts = 0;
-        [SerializeField] private List<ItemData> itemsDataScriptableObjects;
-
-        private void Start()
-        {
-            foreach (var item in itemsDataScriptableObjects)
-            {
-                AddItem(item, startingAmounts);
-            }
-        }
+        
+        
+        
+        [SerializeField] private List<ItemData> existingItems;
+        public List<ItemData> GetExistingItems => existingItems;
         
         public Dictionary<ItemData, int> GetDictionary => _inventoryItems;
         
         public void AddItem(ItemData item, int amount)
         {
+            Debug.Log("Trying to add item");
+            if(item == null) return; 
             if (!_inventoryItems.ContainsKey(item))
             {
                 _inventoryItems.Add(item, amount);
+                Debug.Log("added item" + item.name);
                 FindObjectOfType<ItemUIContainer>()?.AddNewUIItem(item);
             }
             else
