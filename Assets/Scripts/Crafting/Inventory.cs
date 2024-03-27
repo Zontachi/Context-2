@@ -39,6 +39,7 @@ namespace Crafting
         
         public void AddItem(ItemData item, int amount)
         {
+            if(item == null) return; 
             if (!_inventoryItems.ContainsKey(item))
             {
                 _inventoryItems.Add(item, amount);

@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq; 
 using Crafting;
+using Itemsystem; 
 using UnityEngine;
+
 
 public class SceneSearchHandler : MonoBehaviour
 {
     public string areaType;
     private Texture2D hoverCursor;
-    
+
 
     public void Start()
     {
@@ -66,6 +69,14 @@ public class SceneSearchHandler : MonoBehaviour
             Debug.Log("Added " + items[addedExtraItems] + " to your inventory!");
         }
     }
+
+     [SerializeField] private List<ItemData> existingItems; 
+
+    private ItemData GetItemByItemType(ItemType itemType)
+    {
+        return existingItems.FirstOrDefault(item => item.type == itemType);
+    }
+
     public void FillInventoryTexts()
     {
         ResetVars();
@@ -75,30 +86,38 @@ public class SceneSearchHandler : MonoBehaviour
             {
                 case "CD":
                     GlobalVariables.iCD++;
+                    InventoryManager.Instance.AddItem(GetItemByItemType(ItemType.Cd), amount: 1);
                     break;
                 case "leather":
                     GlobalVariables.iLeather++;
+                      InventoryManager.Instance.AddItem(GetItemByItemType(ItemType.Leather), amount: 1);
                     break;
                 case "can":
                     GlobalVariables.iCan++;
                     break;
                 case "flower":
                     GlobalVariables.iFlower++;
+                     InventoryManager.Instance.AddItem(GetItemByItemType(ItemType.Flower), amount: 1);
                     break;
                 case "wool":
                     GlobalVariables.iWool++;
+                     InventoryManager.Instance.AddItem(GetItemByItemType(ItemType.Wol), amount: 1);
                     break;
                 case "fabric":
                     GlobalVariables.iFabrics++;
+                     InventoryManager.Instance.AddItem(GetItemByItemType(ItemType.Fabrics), amount: 1);
                     break;
                 case "rope":
                     GlobalVariables.iRope++;
+                     InventoryManager.Instance.AddItem(GetItemByItemType(ItemType.Rope), amount: 1);
                     break;
                 case "button":
                     GlobalVariables.iButtons++;
+                     InventoryManager.Instance.AddItem(GetItemByItemType(ItemType.Buttons), amount: 1);
                     break;
                 case "plastic":
                     GlobalVariables.iPlastics++;
+                    InventoryManager.Instance.AddItem(GetItemByItemType(ItemType.Plastic), amount: 1);
                     break;
                 case "ramen":
                     GlobalVariables.iRamen++;

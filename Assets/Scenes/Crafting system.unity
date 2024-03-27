@@ -8760,6 +8760,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 2364554525843138893, guid: 1cd39694acf560748a084775d994a870, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4189326993330284567, guid: 1cd39694acf560748a084775d994a870, type: 3}
       propertyPath: resultSlot
       value: 
