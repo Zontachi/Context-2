@@ -16,4 +16,5 @@ public static class GlobalVariables
     public static int iDay = 1, iTime = 0, iReputation = 0, iEncumberance = 0, iMaxEncumbernace = 100;
 
     public static List<string> inventory = new List<string>();
+    public static bool alive = true;
 }
