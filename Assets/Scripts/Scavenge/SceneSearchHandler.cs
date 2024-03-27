@@ -24,7 +24,6 @@ public class SceneSearchHandler : MonoBehaviour
     }
     public void OnEnterScene()
     {
-        Debug.Log("hovercursor set");
         Cursor.SetCursor(hoverCursor, Vector2.zero, CursorMode.Auto);
     }
     public void OnExitScene()
@@ -34,8 +33,6 @@ public class SceneSearchHandler : MonoBehaviour
 
     public void TypeHandler()
     {
-        Random.Range(4,101);
-
         switch (areaType)
         {
             case "food":
@@ -45,42 +42,14 @@ public class SceneSearchHandler : MonoBehaviour
                 AddItem(new[] { "leather", "fabric", "button", "wool", "plastic", "flower", "rope" });
                 break;
             default:
-                Debug.Log("misc");
                 AddItem(new[] { "CD", "button", "plastic", "fabric", "rope", "beans" });
                 break;
         }
-        FillInventoryTexts();
-
     }
 
     private void AddItem(string[] items)
     {
-        int addedItem1 = Random.Range(1, 5);
-        int addedItem2 = Random.Range(1, 5);
-        GlobalVariables.inventory.Add(items[addedItem1]);
-        GlobalVariables.inventory.Add(items[addedItem2]);
-        Debug.Log("Added " + items[addedItem1] + " to your inventory!");
-        Debug.Log("Added " + items[addedItem2] + " to your inventory!");
-
-        for (int i = 0; i < Random.Range(1,4); i++)
-        {
-            int addedExtraItems = Random.Range(1, items.Length - 1);
-            GlobalVariables.inventory.Add(items[addedExtraItems]);
-            Debug.Log("Added " + items[addedExtraItems] + " to your inventory!");
-        }
-    }
-
-     [SerializeField] private List<ItemData> existingItems; 
-
-    private ItemData GetItemByItemType(ItemType itemType)
-    {
-        return existingItems.FirstOrDefault(item => item.type == itemType);
-    }
-
-    public void FillInventoryTexts()
-    {
-        ResetVars();
-        foreach (string s in GlobalVariables.inventory)
+        foreach (var s in items)
         {
             switch (s)
             {
@@ -134,20 +103,9 @@ public class SceneSearchHandler : MonoBehaviour
             }
         }
     }
-    public void ResetVars()
+    
+    private ItemData GetItemByItemType(ItemType itemType)
     {
-        GlobalVariables.iCD = 0;
-        GlobalVariables.iLeather = 0;
-        GlobalVariables.iCan = 0;
-        GlobalVariables.iFlower = 0;
-        GlobalVariables.iWool = 0;
-        GlobalVariables.iFabrics = 0;
-        GlobalVariables.iRope = 0;
-        GlobalVariables.iButtons = 0;
-        GlobalVariables.iPlastics = 0;
-        GlobalVariables.iRamen = 0;
-        GlobalVariables.iSoup = 0;
-        GlobalVariables.iCandy = 0;
-        GlobalVariables.iCookies = 0;
+        return InventoryManager.Instance.GetExistingItems.FirstOrDefault(item => item.type == itemType);
     }
 }
