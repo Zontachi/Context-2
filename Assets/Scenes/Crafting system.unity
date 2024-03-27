@@ -2311,7 +2311,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75301796, y: 0.71716, z: 0.71716}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -7976,6 +7976,134 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932438843}
   m_CullTransparentMesh: 1
+--- !u!1 &1935082357
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1935082359}
+  - component: {fileID: 1935082358}
+  m_Layer: 0
+  m_Name: Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1935082358
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935082357}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6f766126708e5224da8ccfd79fde76a9, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.333
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1935082359
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935082357}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.0466027, y: 3.0567522, z: -0.068441324}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1960215809
 GameObject:
   m_ObjectHideFlags: 0
@@ -8642,7 +8770,7 @@ PrefabInstance:
       objectReference: {fileID: 1515833939}
     - target: {fileID: 4189326993330284567, guid: 1cd39694acf560748a084775d994a870, type: 3}
       propertyPath: recipeData.Array.size
-      value: 15
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 4189326993330284567, guid: 1cd39694acf560748a084775d994a870, type: 3}
       propertyPath: recipeData.Array.data[2]
@@ -8696,6 +8824,82 @@ PrefabInstance:
       propertyPath: recipeData.Array.data[14]
       value: 
       objectReference: {fileID: 11400000, guid: 8d99c0edb6add204c86a394d5ba0a4d9, type: 2}
+    - target: {fileID: 4189326993330284567, guid: 1cd39694acf560748a084775d994a870, type: 3}
+      propertyPath: recipeData.Array.data[15]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3bcc3ad89b6477346b86866fcffdcd07, type: 2}
+    - target: {fileID: 4189326993330284567, guid: 1cd39694acf560748a084775d994a870, type: 3}
+      propertyPath: recipeData.Array.data[16]
+      value: 
+      objectReference: {fileID: 11400000, guid: a687fd799a5c92243b0748e8d2e9e8dd, type: 2}
+    - target: {fileID: 4189326993330284567, guid: 1cd39694acf560748a084775d994a870, type: 3}
+      propertyPath: recipeData.Array.data[17]
+      value: 
+      objectReference: {fileID: 11400000, guid: ffbc52b4ca108cc498d95250c7bd2845, type: 2}
+    - target: {fileID: 4189326993330284567, guid: 1cd39694acf560748a084775d994a870, type: 3}
+      propertyPath: recipeData.Array.data[18]
+      value: 
+      objectReference: {fileID: 11400000, guid: e429ee0c8bd1c2e4ba7b62200948df9c, type: 2}
+    - target: {fileID: 4189326993330284567, guid: 1cd39694acf560748a084775d994a870, type: 3}
+      propertyPath: recipeData.Array.data[19]
+      value: 
+      objectReference: {fileID: 11400000, guid: fcba0e78001ede74a91e74bd00e55db4, type: 2}
+    - target: {fileID: 4189326993330284567, guid: 1cd39694acf560748a084775d994a870, type: 3}
+      propertyPath: recipeData.Array.data[20]
+      value: 
+      objectReference: {fileID: 11400000, guid: 912bc6561b24f5a4b8f4fdc2f9acdb2b, type: 2}
+    - target: {fileID: 4189326993330284567, guid: 1cd39694acf560748a084775d994a870, type: 3}
+      propertyPath: recipeData.Array.data[21]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0e85f244845ac35409cb663f8d59f497, type: 2}
+    - target: {fileID: 4189326993330284567, guid: 1cd39694acf560748a084775d994a870, type: 3}
+      propertyPath: recipeData.Array.data[22]
+      value: 
+      objectReference: {fileID: 11400000, guid: 853f3851adb51f74e86938f7e4036046, type: 2}
+    - target: {fileID: 4189326993330284567, guid: 1cd39694acf560748a084775d994a870, type: 3}
+      propertyPath: recipeData.Array.data[23]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d6a76e35825e5b448ac2fd5a4853bfb, type: 2}
+    - target: {fileID: 4189326993330284567, guid: 1cd39694acf560748a084775d994a870, type: 3}
+      propertyPath: recipeData.Array.data[24]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f77490e356f9444ba9100ac1b21e2f3, type: 2}
+    - target: {fileID: 4189326993330284567, guid: 1cd39694acf560748a084775d994a870, type: 3}
+      propertyPath: recipeData.Array.data[25]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d6a76e35825e5b448ac2fd5a4853bfb, type: 2}
+    - target: {fileID: 4189326993330284567, guid: 1cd39694acf560748a084775d994a870, type: 3}
+      propertyPath: recipeData.Array.data[26]
+      value: 
+      objectReference: {fileID: 11400000, guid: 36faab59dfd440d44b9afa3aed8f7846, type: 2}
+    - target: {fileID: 4189326993330284567, guid: 1cd39694acf560748a084775d994a870, type: 3}
+      propertyPath: recipeData.Array.data[27]
+      value: 
+      objectReference: {fileID: 11400000, guid: 36faab59dfd440d44b9afa3aed8f7846, type: 2}
+    - target: {fileID: 4189326993330284567, guid: 1cd39694acf560748a084775d994a870, type: 3}
+      propertyPath: recipeData.Array.data[28]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1f50005d3d278cf4aa19bea8deca98eb, type: 2}
+    - target: {fileID: 4189326993330284567, guid: 1cd39694acf560748a084775d994a870, type: 3}
+      propertyPath: recipeData.Array.data[29]
+      value: 
+      objectReference: {fileID: 11400000, guid: a3fd6675122b3d9408038f91f76475b0, type: 2}
+    - target: {fileID: 4189326993330284567, guid: 1cd39694acf560748a084775d994a870, type: 3}
+      propertyPath: recipeData.Array.data[30]
+      value: 
+      objectReference: {fileID: 11400000, guid: c39e954e544f5d24f805f0a4f4e7f490, type: 2}
+    - target: {fileID: 4189326993330284567, guid: 1cd39694acf560748a084775d994a870, type: 3}
+      propertyPath: recipeData.Array.data[31]
+      value: 
+      objectReference: {fileID: 11400000, guid: ff72f6f8494222c4dbe7fa1a79d50a1d, type: 2}
+    - target: {fileID: 4189326993330284567, guid: 1cd39694acf560748a084775d994a870, type: 3}
+      propertyPath: recipeData.Array.data[32]
+      value: 
+      objectReference: {fileID: 11400000, guid: d8b69aba34d685f42998a2e96ae4d078, type: 2}
+    - target: {fileID: 4189326993330284567, guid: 1cd39694acf560748a084775d994a870, type: 3}
+      propertyPath: recipeData.Array.data[33]
+      value: 
+      objectReference: {fileID: 11400000, guid: e9f4ccae12afd6e4d86b7d359c698fbb, type: 2}
     - target: {fileID: 4189326993330284567, guid: 1cd39694acf560748a084775d994a870, type: 3}
       propertyPath: craftingSlots.Array.data[0]
       value: 
@@ -8764,3 +8968,4 @@ SceneRoots:
   - {fileID: 7140055344508718470}
   - {fileID: 457161265}
   - {fileID: 1323424578}
+  - {fileID: 1935082359}
