@@ -12,29 +12,32 @@ public class UpdateText : MonoBehaviour
 
     void Update()
     {
-        CDCounter.text = "x" + GlobalVariables.iCD;
-        LeatherCounter.text = "x" + GlobalVariables.iLeather;
-        CanCounter.text = "x" + GlobalVariables.iCan;
-        FlowerCounter.text = "x" + GlobalVariables.iFlower;
-        WoolCounter.text = "x" + GlobalVariables.iWool;
-        FabricsCounter.text = "x" + GlobalVariables.iFabrics;
-        RopeCounter.text = "x" + GlobalVariables.iRope;
-        ButtonsCounter.text = "x" + GlobalVariables.iButtons;
-        PlasticsCounter.text = "x" + GlobalVariables.iPlastics;
-        RamenCounter.text = "x" + GlobalVariables.iRamen;
-        SoupCounter.text = "x" + GlobalVariables.iSoup;
-        CandyCounter.text = "x" + GlobalVariables.iCandy;
-        CookiesCounter.text = "x" + GlobalVariables.iCookies;
-        DayCounter.text = "Day " + GlobalVariables.iDay;
-        UpdateReputationText();
-        ReputationCounter.text = "Reputation: " + sReputation + " (" + GlobalVariables.iReputation + ")";
-        CalculateEncumberance();
-        UpdateEncumberanceColor();
-        EncumberanceCounter.text = "Encumberance: " + GlobalVariables.iEncumberance + "/" + GlobalVariables.iMaxEncumbernace;
-        TimeCounter.text = ConvertTo24HourFormat(GlobalVariables.iTime);
-        //TimeCounter.text = ConvertTo24HourFormat((int) Time.time);
-        FoodCounter.text = CalculateFood() + " Days worth of food";
-        FoodTextColor();
+        if (GlobalVariables.alive)
+        {
+            CDCounter.text = "x" + GlobalVariables.iCD;
+            LeatherCounter.text = "x" + GlobalVariables.iLeather;
+            CanCounter.text = "x" + GlobalVariables.iCan;
+            FlowerCounter.text = "x" + GlobalVariables.iFlower;
+            WoolCounter.text = "x" + GlobalVariables.iWool;
+            FabricsCounter.text = "x" + GlobalVariables.iFabrics;
+            RopeCounter.text = "x" + GlobalVariables.iRope;
+            ButtonsCounter.text = "x" + GlobalVariables.iButtons;
+            PlasticsCounter.text = "x" + GlobalVariables.iPlastics;
+            RamenCounter.text = "x" + GlobalVariables.iRamen;
+            SoupCounter.text = "x" + GlobalVariables.iSoup;
+            CandyCounter.text = "x" + GlobalVariables.iCandy;
+            CookiesCounter.text = "x" + GlobalVariables.iCookies;
+            DayCounter.text = "Day " + GlobalVariables.iDay;
+            UpdateReputationText();
+            ReputationCounter.text = "Reputation: " + sReputation + " (" + GlobalVariables.iReputation + ")";
+            CalculateEncumberance();
+            UpdateEncumberanceColor();
+            EncumberanceCounter.text = "Encumberance: " + GlobalVariables.iEncumberance + "/" + GlobalVariables.iMaxEncumbernace;
+            TimeCounter.text = ConvertTo24HourFormat(GlobalVariables.iTime);
+            //TimeCounter.text = ConvertTo24HourFormat((int) Time.time);
+            FoodCounter.text = CalculateFood() + " Days worth of food";
+            FoodTextColor();
+        }
     }
 
     int CalculateFood()
@@ -45,7 +48,7 @@ public class UpdateText : MonoBehaviour
 
     int CalculateEncumberance()
     {
-        GlobalVariables.iEncumberance = (GlobalVariables.iRamen * 4) + (GlobalVariables.iSoup * 10) + GlobalVariables.iCandy + (GlobalVariables.iCookies * 2);
+        GlobalVariables.iEncumberance = (GlobalVariables.iRamen * 4) + (GlobalVariables.iSoup * 10) + GlobalVariables.iCandy + (GlobalVariables.iCookies * 2) + GlobalVariables.iCD + GlobalVariables.iLeather + GlobalVariables.iCan + GlobalVariables.iFlower + GlobalVariables.iWool + GlobalVariables.iFabrics + GlobalVariables.iRope + GlobalVariables.iButtons + GlobalVariables.iPlastics;
         return GlobalVariables.iEncumberance;
     }
 
@@ -112,6 +115,33 @@ public class UpdateText : MonoBehaviour
             EncumberanceCounter.color = Color.red;
         }
     }
+    
+    public void NextDay()
+    {
+        if (GlobalVariables.iRamen > 1)
+        {
+            GlobalVariables.iRamen -= 1;
+        }
+        else if (GlobalVariables.iCookies > 2)
+        {
+            GlobalVariables.iCookies -= 2;
+        }
+        else if (GlobalVariables.iSoup > 1)
+        {
+            GlobalVariables.iSoup -= 1;
+        }
+        else if (GlobalVariables.iCandy > 4)
+        {
+            GlobalVariables.iCandy -= 4;
+        }
+        else
+        {
+            DayCounter.text = "You starved to death";
+            GlobalVariables.alive = false;
+        }
+        GlobalVariables.iTime = 0;
+        GlobalVariables.iDay += 1;
+    }
 
     string ConvertTo24HourFormat(int time)
     {
@@ -119,8 +149,13 @@ public class UpdateText : MonoBehaviour
         int minutes = time % 60; // Extract minutes
 
         // Ensure that hours and minutes are within the valid range
-        hours = Mathf.Clamp(hours, 0, 23);
+        hours = Mathf.Clamp(hours, 0, 24);
         minutes = Mathf.Clamp(minutes, 0, 59);
+
+        if (hours == 24)
+        {
+            NextDay();
+        }
 
         // Format the time string in 24-hour format
         string formattedTime = string.Format("{0:00}:{1:00}", hours, minutes);

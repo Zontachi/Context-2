@@ -20,7 +20,7 @@ public class SceneSearchHandler : MonoBehaviour
     public void OnClickScene()
     {
         TypeHandler();
-        GlobalVariables.iTime+=30;
+        GlobalVariables.iTime+=120;
     }
     public void OnEnterScene()
     {
